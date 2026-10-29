@@ -12,6 +12,7 @@ import {
   Mail,
   MapPin,
   ChevronRight,
+  ChevronDown,
   CheckCircle2,
   ExternalLink,
   Crown,
@@ -30,7 +31,12 @@ import {
   Palette,
   Bus,
   Check,
-  Send
+  Send,
+  Clock,
+  Briefcase,
+  HelpCircle,
+  Medal,
+  CheckCheck
 } from 'lucide-react';
 import { useSchool } from '../context/SchoolContext';
 import { PublicNavbar } from '../components/layout/PublicNavbar';
@@ -39,11 +45,44 @@ import { PublicFooter } from '../components/layout/PublicFooter';
 export const LandingPage: React.FC = () => {
   const { setCurrentView, notices, holidays } = useSchool();
   const [downloadSuccess, setDownloadSuccess] = useState(false);
+  const [callbackNumber, setCallbackNumber] = useState('');
+  const [callbackSuccess, setCallbackSuccess] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const handleDownloadBrochure = () => {
     setDownloadSuccess(true);
     setTimeout(() => setDownloadSuccess(false), 4000);
   };
+
+  const handleCallbackSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (callbackNumber.trim()) {
+      setCallbackSuccess(true);
+      setTimeout(() => {
+        setCallbackSuccess(false);
+        setCallbackNumber('');
+      }, 5000);
+    }
+  };
+
+  const homeFaqs = [
+    {
+      q: 'When do admissions begin for the 2026–2027 academic session?',
+      a: 'Admissions are open now from Pre-Primary through Grade 11. Parents can complete the online application or book a campus visit with our admissions counselor.'
+    },
+    {
+      q: 'What is the board affiliation of AL NOOR Public School?',
+      a: 'AL NOOR Public School is affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation No: 2130842), incorporating experiential STEM and digital learning.'
+    },
+    {
+      q: 'Does the school provide transport with female attendants and GPS?',
+      a: 'Yes, our 24-bus fleet covers all major corridors across Delhi NCR with on-board CCTV, female conductors, speed governors, and real-time GPS tracking inside the parent ERP app.'
+    },
+    {
+      q: 'Are merit-based scholarships available for students?',
+      a: 'Yes! The Noor Merit Scholarship offers up to 100% tuition waivers for academic achievers scoring 95%+ and state/national level athletes.'
+    }
+  ];
 
   return (
     <div style={{ backgroundColor: '#FFFFFF', color: '#111111', minHeight: '100vh', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -346,8 +385,123 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Welcome & Principal Desk Spotlight */}
+      {/* 5. Board Toppers & Hall of Fame (NEW SECTION) */}
       <section style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
+        <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '45px' }}>
+            <span style={{ color: '#FFA52E', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
+              Academic Laurels
+            </span>
+            <h2 style={{ fontSize: '32px', color: '#172A55', fontWeight: 800, marginTop: '8px' }}>
+              CBSE Board Toppers & Hall of Fame
+            </h2>
+            <p style={{ fontSize: '15px', color: '#666666', maxWidth: '680px', margin: '10px auto 0', lineHeight: 1.6 }}>
+              Celebrating our exceptional scholars who achieved benchmark distinctions in the CBSE All-India Board Examinations.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+            {[
+              {
+                name: 'Ayaan Malik',
+                score: '98.8%',
+                stream: 'Class 12 — Science (PCM)',
+                rank: 'School Rank 1 (State Top 10)',
+                dest: 'Admitted: IIT Delhi (Computer Science)',
+                badge: 'Gold Medalist'
+              },
+              {
+                name: 'Zoya Parveen',
+                score: '98.4%',
+                stream: 'Class 12 — Commerce',
+                rank: 'School Rank 1 (Commerce)',
+                dest: 'Admitted: SRCC Delhi (B.Com Hons)',
+                badge: 'Distinction'
+              },
+              {
+                name: 'Ibrahim Siddiqui',
+                score: '97.6%',
+                stream: 'Class 12 — Humanities',
+                rank: 'School Rank 1 (Humanities)',
+                dest: 'Admitted: St. Stephen’s College',
+                badge: 'Merit Award'
+              },
+              {
+                name: 'Maryam Khan',
+                score: '99.2%',
+                stream: 'Class 10 — AISSE Board',
+                rank: 'Perfect 100 in Math & Science',
+                dest: 'National Science Olympiad Winner',
+                badge: 'Perfect Centum'
+              }
+            ].map((topper, i) => (
+              <div
+                key={i}
+                className="analytics-card"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '16px',
+                  padding: '28px 22px',
+                  border: '1px solid #ECEEF6',
+                  textAlign: 'center',
+                  position: 'relative'
+                }}
+              >
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '16px',
+                    right: '16px',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    backgroundColor: '#FEF3C7',
+                    color: '#B45309',
+                    padding: '3px 10px',
+                    borderRadius: '12px'
+                  }}
+                >
+                  {topper.badge}
+                </div>
+
+                <div
+                  style={{
+                    width: '72px',
+                    height: '72px',
+                    borderRadius: '50%',
+                    backgroundColor: '#EBF3FE',
+                    border: '3px solid #1976ED',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 16px'
+                  }}
+                >
+                  <Medal size={34} color="#1976ED" />
+                </div>
+
+                <div style={{ fontSize: '28px', fontWeight: 800, color: '#1976ED', lineHeight: 1 }}>
+                  {topper.score}
+                </div>
+                <h3 style={{ fontSize: '18px', color: '#172A55', fontWeight: 700, marginTop: '8px' }}>
+                  {topper.name}
+                </h3>
+                <p style={{ fontSize: '12.5px', color: '#FFA52E', fontWeight: 600, marginTop: '3px' }}>
+                  {topper.stream}
+                </p>
+                <div style={{ fontSize: '12px', color: '#666666', marginTop: '6px' }}>
+                  {topper.rank}
+                </div>
+                <div style={{ marginTop: '14px', paddingTop: '12px', borderTop: '1px solid #F1F1F1', fontSize: '11.5px', color: '#10B981', fontWeight: 600 }}>
+                  {topper.dest}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Welcome & Principal Desk Spotlight */}
+      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '50px', alignItems: 'center' }}>
           <div>
             <span style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
@@ -384,7 +538,7 @@ export const LandingPage: React.FC = () => {
 
           <div
             style={{
-              backgroundColor: '#F8FAFE',
+              backgroundColor: '#FFFFFF',
               borderRadius: '20px',
               padding: '36px',
               border: '1px solid #ECEEF6',
@@ -410,69 +564,163 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Academic Wings Overview */}
-      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
+      {/* 7. Faculty Mentors & Academic Council (NEW SECTION) */}
+      <section style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '36px', flexWrap: 'wrap', gap: '16px' }}>
-            <div>
-              <span style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase' }}>Academic Pathways</span>
-              <h2 style={{ fontSize: '32px', color: '#172A55', fontWeight: 800, marginTop: '4px' }}>Curriculum by Growth Stage</h2>
-            </div>
-            <button
-              onClick={() => setCurrentView('academics')}
-              className="btn-primary-pill"
-              style={{ height: '40px', fontSize: '13.5px' }}
-            >
-              <span>Explore Detailed Syllabus & Wings</span>
-              <ArrowRight size={15} />
-            </button>
+          <div style={{ textAlign: 'center', marginBottom: '45px' }}>
+            <span style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
+              Distinguished Educators
+            </span>
+            <h2 style={{ fontSize: '32px', color: '#172A55', fontWeight: 800, marginTop: '8px' }}>
+              Our Expert Academic Council
+            </h2>
+            <p style={{ fontSize: '15px', color: '#666666', maxWidth: '680px', margin: '10px auto 0', lineHeight: 1.6 }}>
+              86+ dedicated educators holding advanced degrees, continuous pedagogical certifications, and passion for mentoring youth.
+            </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '22px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
             {[
               {
-                wing: 'Primary Wing',
-                grades: 'Grades 1 – 5',
-                desc: 'Foundational literacy, phonics, joyful mental math, art, and environmental science inquiry.',
+                name: 'Dr. Farzana Anjum',
+                role: 'Head of Science & STEM Labs',
+                degree: 'Ph.D. in Applied Physics, B.Ed.',
+                exp: '18 Years Mentoring',
                 color: '#1976ED'
               },
               {
-                wing: 'Middle Wing',
-                grades: 'Grades 6 – 8',
-                desc: 'Analytical lab experiments, Python and Scratch coding, social sciences, and languages.',
-                color: '#10B981'
-              },
-              {
-                wing: 'Secondary Wing',
-                grades: 'Grades 9 – 10',
-                desc: 'Rigorous CBSE board foundation, conceptual math, robotics, and leadership skills.',
+                name: 'Prof. Naveed Akhtar',
+                role: 'Head of Mathematics & Olympiads',
+                degree: 'M.Sc. Mathematics, Gold Medalist',
+                exp: '15 Years Mentoring',
                 color: '#FFA52E'
               },
               {
-                wing: 'Senior Secondary',
-                grades: 'Grades 11 – 12',
-                desc: 'Specialized streams: Science (PCM/PCB), Commerce, and Humanities with competitive prep.',
+                name: 'Mrs. Yasmin Begum',
+                role: 'Head of Languages & Literature',
+                degree: 'M.A. English & Arabic Literature',
+                exp: '20 Years Mentoring',
+                color: '#10B981'
+              },
+              {
+                name: 'Coach Tariq Jamil',
+                role: 'Director of Physical Education & Sports',
+                degree: 'M.P.Ed., NIS Certified Athletics Coach',
+                exp: '12 Years Mentoring',
                 color: '#6C5CE7'
               }
-            ].map((w, idx) => (
+            ].map((f, i) => (
               <div
-                key={idx}
+                key={i}
                 className="analytics-card"
                 style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '12px',
-                  padding: '26px',
-                  borderTop: `4px solid ${w.color}`
+                  borderRadius: '14px',
+                  padding: '26px 20px',
+                  border: '1px solid #ECEEF6',
+                  textAlign: 'center'
                 }}
               >
-                <span style={{ fontSize: '11.5px', fontWeight: 700, color: w.color, textTransform: 'uppercase' }}>
-                  {w.grades}
-                </span>
-                <h3 style={{ fontSize: '18px', color: '#172A55', fontWeight: 700, margin: '6px 0 10px' }}>
-                  {w.wing}
+                <div
+                  style={{
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '50%',
+                    backgroundColor: '#F8FAFE',
+                    border: `2px solid ${f.color}`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 14px'
+                  }}
+                >
+                  <Users size={28} color={f.color} />
+                </div>
+                <h3 style={{ fontSize: '17px', color: '#172A55', fontWeight: 700 }}>
+                  {f.name}
                 </h3>
-                <p style={{ fontSize: '13px', color: '#666666', lineHeight: 1.55 }}>
-                  {w.desc}
+                <p style={{ fontSize: '13px', color: f.color, fontWeight: 600, marginTop: '2px' }}>
+                  {f.role}
+                </p>
+                <p style={{ fontSize: '12px', color: '#888888', marginTop: '6px' }}>
+                  {f.degree}
+                </p>
+                <span style={{ display: 'inline-block', marginTop: '12px', fontSize: '11.5px', fontWeight: 600, color: '#172A55', backgroundColor: '#F1F5F9', padding: '3px 12px', borderRadius: '12px' }}>
+                  {f.exp}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. A Day in the Life of an AL NOOR Student (NEW SECTION) */}
+      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
+        <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '45px' }}>
+            <span style={{ color: '#FFA52E', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
+              Student Experience
+            </span>
+            <h2 style={{ fontSize: '32px', color: '#172A55', fontWeight: 800, marginTop: '8px' }}>
+              A Day in the Life of an AL NOOR Scholar
+            </h2>
+            <p style={{ fontSize: '15px', color: '#666666', maxWidth: '680px', margin: '10px auto 0', lineHeight: 1.6 }}>
+              A purposeful blend of mindfulness, interactive inquiry, collaborative sports, and character building from sunrise to afternoon.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '20px' }}>
+            {[
+              {
+                time: '07:45 AM',
+                title: 'Morning Reflection',
+                desc: 'Universal school assembly, national anthem, values recitation, and ethical thought of the day.',
+                icon: <Clock size={20} color="#1976ED" />
+              },
+              {
+                time: '08:30 AM',
+                title: 'STEM & Robotics Lab',
+                desc: 'Hands-on experiment block: writing code, 3D printing modules, and conceptual physics labs.',
+                icon: <Cpu size={20} color="#FFA52E" />
+              },
+              {
+                time: '11:00 AM',
+                title: 'Organic Lunch & Chess',
+                desc: 'Wholesome hot lunch in the cafeteria followed by library reading and friendly chess duels.',
+                icon: <Crown size={20} color="#10B981" />
+              },
+              {
+                time: '12:30 PM',
+                title: 'Languages & Humanities',
+                desc: 'Debate workshops, English phonics, second languages, and social science simulations.',
+                icon: <BookOpen size={20} color="#6C5CE7" />
+              },
+              {
+                time: '01:45 PM',
+                title: 'Safe Transit & GPS Bus',
+                desc: 'Departure with biometric bus attendance and live tracking on parents’ mobile dashboards.',
+                icon: <Bus size={20} color="#0891B2" />
+              }
+            ].map((schedule, i) => (
+              <div
+                key={i}
+                className="analytics-card"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '14px',
+                  padding: '24px 20px',
+                  border: '1px solid #ECEEF6'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#1976ED', fontWeight: 700, fontSize: '13px', marginBottom: '10px' }}>
+                  {schedule.icon}
+                  <span>{schedule.time}</span>
+                </div>
+                <h3 style={{ fontSize: '16px', color: '#172A55', fontWeight: 700, marginBottom: '6px' }}>
+                  {schedule.title}
+                </h3>
+                <p style={{ fontSize: '12.5px', color: '#666666', lineHeight: 1.55 }}>
+                  {schedule.desc}
                 </p>
               </div>
             ))}
@@ -480,8 +728,84 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. Student Life & Co-Curricular Clubs */}
+      {/* 9. Scholarships & Financial Assistance (NEW SECTION) */}
       <section style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
+        <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '45px' }}>
+            <span style={{ color: '#10B981', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
+              Accessible Quality Education
+            </span>
+            <h2 style={{ fontSize: '32px', color: '#172A55', fontWeight: 800, marginTop: '8px' }}>
+              Scholarship Programs & Concessions
+            </h2>
+            <p style={{ fontSize: '15px', color: '#666666', maxWidth: '680px', margin: '10px auto 0', lineHeight: 1.6 }}>
+              We ensure financial circumstances never stand between a bright mind and a world-class education.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+            {[
+              {
+                title: 'Noor Merit Scholarship',
+                benefit: 'Up to 100% Tuition Fee Waiver',
+                criteria: 'Awarded to scholars with 95%+ in previous board or grade examinations and top entrance test percentiles.',
+                color: '#FFA52E'
+              },
+              {
+                title: 'Sports Laurels Excellence Award',
+                benefit: '50% Tuition Fee Waiver',
+                criteria: 'For student-athletes who represent state or national teams in Football, Badminton, Track, or Chess.',
+                color: '#1976ED'
+              },
+              {
+                title: 'Sibling & S.E.E.D. Concession',
+                benefit: '25% Sibling Discount & Need Aid',
+                criteria: 'Supporting families enrolling multiple siblings or students requiring socio-economic educational support.',
+                color: '#10B981'
+              }
+            ].map((sch, i) => (
+              <div
+                key={i}
+                className="analytics-card"
+                style={{
+                  backgroundColor: '#F8FAFE',
+                  borderRadius: '16px',
+                  padding: '30px',
+                  borderTop: `4px solid ${sch.color}`
+                }}
+              >
+                <span style={{ fontSize: '12px', fontWeight: 700, color: sch.color, textTransform: 'uppercase', letterSpacing: '0.6px' }}>
+                  {sch.benefit}
+                </span>
+                <h3 style={{ fontSize: '20px', color: '#172A55', fontWeight: 700, margin: '8px 0 10px' }}>
+                  {sch.title}
+                </h3>
+                <p style={{ fontSize: '13.5px', color: '#555555', lineHeight: 1.6 }}>
+                  {sch.criteria}
+                </p>
+                <button
+                  onClick={() => setCurrentView('contact')}
+                  style={{
+                    marginTop: '16px',
+                    fontSize: '13px',
+                    color: sch.color,
+                    fontWeight: 700,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}
+                >
+                  <span>Apply for Scholarship</span>
+                  <ArrowRight size={13} />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Student Life & Clubs Showcase */}
+      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
             <span style={{ color: '#FFA52E', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
@@ -574,8 +898,8 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 8. Campus Facilities Preview */}
-      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
+      {/* 11. Campus Facilities Spotlight */}
+      <section style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '36px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
@@ -647,8 +971,8 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 9. Step-by-Step Admissions Journey 2026–2027 */}
-      <section style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
+      {/* 12. 4-Step Admissions Journey */}
+      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
             <span style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
@@ -689,7 +1013,7 @@ export const LandingPage: React.FC = () => {
                 key={idx}
                 className="analytics-card"
                 style={{
-                  backgroundColor: '#F8FAFE',
+                  backgroundColor: '#FFFFFF',
                   borderRadius: '14px',
                   padding: '28px 24px',
                   border: '1px solid #ECEEF6',
@@ -730,8 +1054,8 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 10. Parent & Alumni Testimonials */}
-      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
+      {/* 13. Parent & Alumni Testimonials */}
+      <section style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
             <span style={{ color: '#FFA52E', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
@@ -799,68 +1123,129 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 11. Live Circulars & Announcements Preview */}
-      <section id="notices" style={{ padding: '75px 32px', backgroundColor: '#FFFFFF' }}>
-        <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px', flexWrap: 'wrap', gap: '14px' }}>
-            <div>
-              <div style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase' }}>Official Circulars</div>
-              <h2 style={{ fontSize: '28px', color: '#172A55', fontWeight: 800 }}>Live School Notices & Calendar</h2>
-            </div>
-            <button
-              onClick={() => setCurrentView('notices')}
-              className="btn-primary-pill"
-              style={{ height: '38px', fontSize: '13px' }}
-            >
-              <span>View All Official Circulars</span>
-              <ExternalLink size={14} />
-            </button>
+      {/* 14. Quick Frequently Asked Questions (FAQ) */}
+      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
+        <div style={{ maxWidth: '860px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+            <span style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase' }}>
+              Common Queries
+            </span>
+            <h2 style={{ fontSize: '30px', color: '#172A55', fontWeight: 800, marginTop: '6px' }}>
+              Frequently Asked Questions
+            </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
-            {notices.slice(0, 3).map(n => (
-              <div
-                key={n.id}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '12px',
-                  padding: '22px',
-                  boxShadow: '0 3px 12px rgba(23, 42, 85, 0.05)',
-                  border: '1px solid #ECEEF6',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                    <span className="date-badge" style={{ fontSize: '11.5px', padding: '3px 10px' }}>{n.date}</span>
-                    <span style={{ fontSize: '11.5px', color: '#888888' }}>{n.audience || 'School-wide'}</span>
-                  </div>
-                  <h4 style={{ fontSize: '15px', color: '#172A55', fontWeight: 600, lineHeight: 1.4, marginBottom: '8px' }}>
-                    {n.notice}
-                  </h4>
-                  <p style={{ fontSize: '12.5px', color: '#666666', lineHeight: 1.5 }}>
-                    {n.content?.substring(0, 100)}...
-                  </p>
-                </div>
-                <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '11.5px', color: '#1976ED', fontWeight: 500 }}>Doc: {n.document}</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {homeFaqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={index}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    border: '1px solid #ECEEF6',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    boxShadow: isOpen ? '0 4px 16px rgba(27, 34, 56, 0.04)' : 'none'
+                  }}
+                >
                   <button
-                    onClick={() => setCurrentView('notices')}
-                    style={{ fontSize: '12.5px', color: '#1976ED', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    style={{
+                      width: '100%',
+                      padding: '16px 20px',
+                      backgroundColor: isOpen ? '#F8FAFE' : '#FFFFFF',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      textAlign: 'left',
+                      fontSize: '15px',
+                      fontWeight: 600,
+                      color: isOpen ? '#1976ED' : '#172A55',
+                      cursor: 'pointer'
+                    }}
                   >
-                    <span>Read Details</span>
-                    <ArrowRight size={13} />
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      size={18}
+                      style={{
+                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.2s ease',
+                        flexShrink: 0
+                      }}
+                    />
                   </button>
+                  {isOpen && (
+                    <div style={{ padding: '16px 20px', backgroundColor: '#FFFFFF', fontSize: '14px', color: '#555555', lineHeight: 1.65, borderTop: '1px solid #F1F1F1' }}>
+                      {faq.a}
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* 12. Prospectus Download & Newsletter Banner */}
+      {/* 15. Instant Callback Request Strip */}
+      <section style={{ backgroundColor: '#172A55', color: '#FFFFFF', padding: '50px 32px' }}>
+        <div
+          style={{
+            maxWidth: '1140px',
+            margin: '0 auto',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '24px'
+          }}
+        >
+          <div>
+            <h3 style={{ fontSize: '22px', fontWeight: 800, color: '#FFA52E' }}>
+              Want to Learn More? Request an Instant Callback
+            </h3>
+            <p style={{ fontSize: '13.5px', color: '#C5C9D2', marginTop: '4px' }}>
+              Our admissions team will call you within 30 minutes to answer your questions.
+            </p>
+          </div>
+
+          <form onSubmit={handleCallbackSubmit} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <input
+              type="tel"
+              required
+              value={callbackNumber}
+              onChange={e => setCallbackNumber(e.target.value)}
+              placeholder="Enter your phone number..."
+              style={{
+                height: '42px',
+                padding: '0 16px',
+                borderRadius: '24px',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                backgroundColor: '#FFFFFF',
+                color: '#111111',
+                fontSize: '13.5px',
+                minWidth: '240px'
+              }}
+            />
+            <button
+              type="submit"
+              className="btn-primary-pill"
+              style={{
+                height: '42px',
+                backgroundColor: '#FFA52E',
+                color: '#111111',
+                fontWeight: 700,
+                fontSize: '13.5px'
+              }}
+            >
+              <span>{callbackSuccess ? 'Request Sent ✓' : 'Request Callback'}</span>
+              {!callbackSuccess && <Phone size={14} />}
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* 16. Prospectus Download Banner */}
       <section style={{ backgroundColor: '#1B2238', color: '#FFFFFF', padding: '60px 32px' }}>
         <div
           style={{
@@ -905,7 +1290,7 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 13. Public Footer */}
+      {/* 17. Public Footer */}
       <PublicFooter />
     </div>
   );
