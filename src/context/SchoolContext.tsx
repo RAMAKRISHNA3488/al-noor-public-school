@@ -18,7 +18,8 @@ import {
   NotificationItem,
   AuditLogItem,
   SystemSetting,
-  AuthUser
+  AuthUser,
+  AppView
 } from '../types';
 import {
   initialNotices,
@@ -43,8 +44,8 @@ import {
 
 interface SchoolContextType {
   // Application View Routing
-  currentView: 'landing' | 'login' | 'dashboard';
-  setCurrentView: (view: 'landing' | 'login' | 'dashboard') => void;
+  currentView: AppView;
+  setCurrentView: (view: AppView) => void;
   currentUser: AuthUser | null;
   login: (role?: string) => void;
   logout: () => void;
@@ -119,11 +120,48 @@ interface SchoolContextType {
 const SchoolContext = createContext<SchoolContextType | undefined>(undefined);
 
 export const SchoolProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Application View & Authentication State
-  const [currentView, setCurrentView] = useState<'landing' | 'login' | 'dashboard'>(() => {
+  // Application View & Authentication State with URL hash sync
+  const getInitialView = (): AppView => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      if (['about', 'academics', 'facilities', 'notices', 'contact', 'login', 'dashboard'].includes(hash)) {
+        return hash as AppView;
+      }
+    }
     const saved = localStorage.getItem('alnoor_view');
-    return (saved as any) || 'landing';
-  });
+    return (saved as AppView) || 'landing';
+  };
+
+  const [currentView, setCurrentViewState] = useState<AppView>(getInitialView);
+
+  const setCurrentView = (view: AppView) => {
+    setCurrentViewState(view);
+    localStorage.setItem('alnoor_view', view);
+    if (typeof window !== 'undefined') {
+      if (view === 'landing') {
+        window.history.pushState(null, '', window.location.pathname);
+      } else {
+        window.location.hash = `#${view}`;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      if (['about', 'academics', 'facilities', 'notices', 'contact', 'login', 'dashboard'].includes(hash)) {
+        setCurrentViewState(hash as AppView);
+        localStorage.setItem('alnoor_view', hash);
+      } else if (!hash || hash === 'home') {
+        setCurrentViewState('landing');
+        localStorage.setItem('alnoor_view', 'landing');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(() => {
     const saved = localStorage.getItem('alnoor_user');

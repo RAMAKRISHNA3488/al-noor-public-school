@@ -219,3 +219,14 @@ export interface AuthUser {
   phone?: string;
 }
 
+export type AppView =
+  | 'landing'
+  | 'about'
+  | 'academics'
+  | 'facilities'
+  | 'notices'
+  | 'contact'
+  | 'login'
+  | 'dashboard';
+
+

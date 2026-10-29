@@ -22,60 +22,16 @@ import {
   Sparkles
 } from 'lucide-react';
 import { useSchool } from '../context/SchoolContext';
+import { PublicNavbar } from '../components/layout/PublicNavbar';
+import { PublicFooter } from '../components/layout/PublicFooter';
 
 export const LandingPage: React.FC = () => {
   const { setCurrentView, notices, holidays } = useSchool();
 
   return (
-    <div style={{ backgroundColor: '#FFFFFF', color: '#111111', minHeight: '100vh', fontFamily: "'Roboto', sans-serif" }}>
+    <div style={{ backgroundColor: '#FFFFFF', color: '#111111', minHeight: '100vh', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       {/* 1. Top Public Navigation Bar with Glassmorphic Blur */}
-      <nav
-        className="glass-nav"
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-          padding: '0 32px',
-          height: '76px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer' }} onClick={() => setCurrentView('landing')}>
-          <img src="/logo.svg" alt="AL NOOR Logo" style={{ width: '48px', height: '48px', borderRadius: '50%' }} />
-          <div>
-            <div style={{ color: '#FFA52E', fontSize: '21px', fontWeight: 700, letterSpacing: '0.8px', lineHeight: 1.1 }}>
-              AL NOOR
-            </div>
-            <div style={{ color: '#1B2238', fontSize: '10.5px', fontWeight: 600, letterSpacing: '1.2px', textTransform: 'uppercase' }}>
-              PUBLIC SCHOOL
-            </div>
-          </div>
-        </div>
-
-        {/* Center Links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '28px', fontSize: '14px', fontWeight: 500, color: '#333333' }}>
-          <a href="#about" style={{ transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#1976ED'} onMouseLeave={e => e.currentTarget.style.color = '#333333'}>About Us</a>
-          <a href="#academics" style={{ transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#1976ED'} onMouseLeave={e => e.currentTarget.style.color = '#333333'}>Academics</a>
-          <a href="#facilities" style={{ transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#1976ED'} onMouseLeave={e => e.currentTarget.style.color = '#333333'}>Facilities</a>
-          <a href="#notices" style={{ transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#1976ED'} onMouseLeave={e => e.currentTarget.style.color = '#333333'}>Notices</a>
-          <a href="#contact" style={{ transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#1976ED'} onMouseLeave={e => e.currentTarget.style.color = '#333333'}>Contact</a>
-        </div>
-
-        {/* Right CTA */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <button
-            onClick={() => setCurrentView('login')}
-            className="btn-primary-pill"
-            style={{ height: '40px', padding: '0 20px', fontSize: '13.5px' }}
-          >
-            <span>Portal Login</span>
-            <ArrowRight size={15} />
-          </button>
-        </div>
-      </nav>
+      <PublicNavbar activePage="landing" />
 
       {/* 2. Hero Section */}
       <section
@@ -433,10 +389,11 @@ export const LandingPage: React.FC = () => {
                 <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontSize: '11.5px', color: '#1976ED', fontWeight: 500 }}>Doc: {n.document}</span>
                   <button
-                    onClick={() => setCurrentView('login')}
-                    style={{ fontSize: '12.5px', color: '#1976ED', fontWeight: 600 }}
+                    onClick={() => setCurrentView('notices')}
+                    style={{ fontSize: '12.5px', color: '#1976ED', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}
                   >
-                    Read Details ➔
+                    <span>Read Details</span>
+                    <ArrowRight size={13} />
                   </button>
                 </div>
               </div>
@@ -446,57 +403,8 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* 6. Contact & Public Footer */}
-      <footer id="contact" style={{ backgroundColor: '#1B2238', color: '#C5C9D2', padding: '60px 32px 30px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '40px', marginBottom: '40px' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-              <img src="/logo.svg" alt="AL NOOR Logo" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
-              <span style={{ color: '#FFA52E', fontSize: '20px', fontWeight: 700 }}>AL NOOR PUBLIC SCHOOL</span>
-            </div>
-            <p style={{ fontSize: '13px', color: '#858C9B', lineHeight: 1.6 }}>
-              Dedicated to academic achievement, moral values, and student empowerment since 2005.
-            </p>
-          </div>
-
-          <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '15px', fontWeight: 600, marginBottom: '14px' }}>Campus Contact</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <MapPin size={16} color="#FFA52E" />
-                <span>Al-Noor Campus Road, Sector 12, New Delhi</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Phone size={16} color="#1976ED" />
-                <span>+91 11 2345 6789 / +91 98765 43210</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Mail size={16} color="#10B981" />
-                <span>admissions@alnoor.edu / info@alnoor.edu</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '15px', fontWeight: 600, marginBottom: '14px' }}>Quick Portals</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px' }}>
-              <button onClick={() => setCurrentView('login')} style={{ textAlign: 'left', color: '#1976FF' }}>
-                Administrative Portal Login
-              </button>
-              <button onClick={() => setCurrentView('login')} style={{ textAlign: 'left', color: '#1976FF' }}>
-                Student & Parent Portal
-              </button>
-              <button onClick={() => setCurrentView('login')} style={{ textAlign: 'left', color: '#1976FF' }}>
-                Teacher & Staff Login
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', fontSize: '12.5px', color: '#858C9B' }}>
-          <div>© 2026 AL NOOR Public School. All Rights Reserved.</div>
-          <div>Made with ❤️ by Bigpage</div>
-        </div>
-      </footer>
+      <PublicFooter />
     </div>
   );
 };
+
