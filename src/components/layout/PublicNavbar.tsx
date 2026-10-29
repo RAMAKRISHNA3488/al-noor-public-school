@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Menu, X, ShieldCheck, ChevronRight } from 'lucide-react';
 import { useSchool } from '../../context/SchoolContext';
 import { AppView } from '../../types';
@@ -10,8 +10,7 @@ interface PublicNavbarProps {
 export const PublicNavbar: React.FC<PublicNavbarProps> = ({ activePage }) => {
   const { currentView, setCurrentView } = useSchool();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const active = activePage || currentView;
+  const [scrolledSection, setScrolledSection] = useState<AppView>('landing');
 
   const navLinks: { label: string; view: AppView }[] = [
     { label: 'Home', view: 'landing' },
@@ -22,9 +21,78 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({ activePage }) => {
     { label: 'Contact', view: 'contact' }
   ];
 
+  // Dynamic ScrollSpy: detect which section is currently in viewport when scrolling down
+  useEffect(() => {
+    if (currentView !== 'landing') {
+      return;
+    }
+
+    // Ordered from bottom to top: contact -> notices -> facilities -> academics -> about -> home
+    const sectionMapping: { id: string; view: AppView }[] = [
+      { id: 'contact', view: 'contact' },
+      { id: 'notices', view: 'notices' },
+      { id: 'facilities', view: 'facilities' },
+      { id: 'academics', view: 'academics' },
+      { id: 'about', view: 'about' },
+      { id: 'home', view: 'landing' }
+    ];
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      // Bottom of page: activate 'contact'
+      if (scrollY + windowHeight >= docHeight - 80) {
+        setScrolledSection('contact');
+        return;
+      }
+
+      // Check sections from bottom to top (180px accounts for sticky navbar + header breathing room)
+      const triggerY = scrollY + 180;
+
+      for (const item of sectionMapping) {
+        const el = document.getElementById(item.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const elTop = rect.top + scrollY;
+          if (triggerY >= elTop) {
+            setScrolledSection(item.view);
+            return;
+          }
+        }
+      }
+      setScrolledSection('landing');
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentView]);
+
+  // When on landing page, active tab reflects scroll position. Otherwise reflects activePage / currentView
+  const active = currentView === 'landing' ? scrolledSection : (activePage || currentView);
+
   const handleNavClick = (view: AppView) => {
-    setCurrentView(view);
     setMobileMenuOpen(false);
+
+    if (currentView === 'landing') {
+      const targetId = view === 'landing' ? 'home' : view;
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        const navHeight = 76;
+        const targetPos = targetEl.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({
+          top: Math.max(0, targetPos),
+          behavior: 'smooth'
+        });
+        setScrolledSection(view);
+        window.history.replaceState(null, '', view === 'landing' ? window.location.pathname : `#${view}`);
+        return;
+      }
+    }
+
+    setCurrentView(view);
   };
 
   return (
@@ -81,11 +149,12 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({ activePage }) => {
                 color: isCurrent ? '#1976ED' : '#333333',
                 backgroundColor: isCurrent ? '#EBF3FE' : 'transparent',
                 fontWeight: isCurrent ? 600 : 500,
-                transition: 'all 0.18s ease',
+                transition: 'all 0.22s cubic-bezier(0.4, 0, 0.2, 1)',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '4px'
+                gap: '6px',
+                position: 'relative'
               }}
               onMouseEnter={e => {
                 if (!isCurrent) {
@@ -104,11 +173,12 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({ activePage }) => {
               {isCurrent && (
                 <span
                   style={{
-                    width: '4px',
-                    height: '4px',
+                    width: '5px',
+                    height: '5px',
                     borderRadius: '50%',
                     backgroundColor: '#1976ED',
-                    display: 'inline-block'
+                    display: 'inline-block',
+                    animation: 'badgePop 0.25s ease-out'
                   }}
                 />
               )}

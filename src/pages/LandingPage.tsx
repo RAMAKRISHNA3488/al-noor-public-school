@@ -91,6 +91,7 @@ export const LandingPage: React.FC = () => {
 
       {/* 2. Hero Section */}
       <section
+        id="home"
         style={{
           position: 'relative',
           background: 'linear-gradient(135deg, #1B2238 0%, #151B2D 50%, #0E1322 100%)',
@@ -295,8 +296,8 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Why Choose AL NOOR: 6 Pillars of Distinction */}
-      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
+      {/* 4. About Us: Why Choose AL NOOR (6 Pillars) & Leadership */}
+      <section id="about" style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
             <span style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
@@ -310,7 +311,7 @@ export const LandingPage: React.FC = () => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px', marginBottom: '70px' }}>
             {[
               {
                 title: 'Value-Based Moral Character',
@@ -382,11 +383,73 @@ export const LandingPage: React.FC = () => {
               </div>
             ))}
           </div>
+
+          {/* Principal Desk Spotlight inside About */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '50px', alignItems: 'center', paddingTop: '20px', borderTop: '1px solid #E2E8F0' }}>
+            <div>
+              <span style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
+                Leadership & Philosophy
+              </span>
+              <h2 style={{ fontSize: '32px', color: '#172A55', fontWeight: 800, lineHeight: 1.3, margin: '8px 0 18px' }}>
+                "Illuminating Young Minds with Ethical Intellect"
+              </h2>
+              <p style={{ fontSize: '15px', color: '#555555', lineHeight: 1.7, marginBottom: '16px' }}>
+                At AL NOOR Public School, our mission is to provide an ecosystem where scholarly rigor coexists with empathy, courage, and moral discipline. We believe that true education does not simply prepare a child for exams — it prepares them for life.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
+                {[
+                  'Affiliated with Central Board of Secondary Education (CBSE), New Delhi',
+                  'Comprehensive STEM, Arts, Languages, and Physical Education integration',
+                  'Dedicated scholarship fund for meritorious and underserved children'
+                ].map((item, idx) => (
+                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13.5px', color: '#222222' }}>
+                    <CheckCircle2 size={17} color="#10B981" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCurrentView('about')}
+                className="btn-primary-pill"
+                style={{ height: '42px', padding: '0 24px', fontSize: '14px' }}
+              >
+                <span>Read Full Institution Story</span>
+                <ArrowRight size={15} />
+              </button>
+            </div>
+
+            <div
+              style={{
+                backgroundColor: '#FFFFFF',
+                borderRadius: '20px',
+                padding: '36px',
+                border: '1px solid #ECEEF6',
+                boxShadow: '0 12px 36px rgba(27, 34, 56, 0.06)'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginBottom: '20px' }}>
+                <img
+                  src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=260"
+                  alt="Principal Dr. A. K. Rahman"
+                  style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #1976ED' }}
+                />
+                <div>
+                  <h3 style={{ fontSize: '20px', color: '#172A55', fontWeight: 700 }}>Dr. A. K. Rahman</h3>
+                  <p style={{ fontSize: '13.5px', color: '#1976ED', fontWeight: 600 }}>Principal & Academic Director</p>
+                  <p style={{ fontSize: '12px', color: '#888888', marginTop: '2px' }}>Ph.D. in Educational Pedagogy, M.Sc.</p>
+                </div>
+              </div>
+              <div style={{ borderLeft: '3px solid #FFA52E', paddingLeft: '16px', fontStyle: 'italic', color: '#444444', fontSize: '14px', lineHeight: 1.65 }}>
+                "At AL NOOR, education transcends textbooks. We equip our students to navigate the complexities of the 21st century with courage, compassion, and uncompromising knowledge."
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 5. Board Toppers & Hall of Fame (NEW SECTION) */}
-      <section style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
+      {/* 5. Academics: CBSE Board Toppers & Hall of Fame */}
+      <section id="academics" style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
             <span style={{ color: '#FFA52E', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
@@ -496,70 +559,6 @@ export const LandingPage: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Welcome & Principal Desk Spotlight */}
-      <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
-        <div style={{ maxWidth: '1140px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '50px', alignItems: 'center' }}>
-          <div>
-            <span style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
-              Leadership & Philosophy
-            </span>
-            <h2 style={{ fontSize: '32px', color: '#172A55', fontWeight: 800, lineHeight: 1.3, margin: '8px 0 18px' }}>
-              "Illuminating Young Minds with Ethical Intellect"
-            </h2>
-            <p style={{ fontSize: '15px', color: '#555555', lineHeight: 1.7, marginBottom: '16px' }}>
-              At AL NOOR Public School, our mission is to provide an ecosystem where scholarly rigor coexists with empathy, courage, and moral discipline. We believe that true education does not simply prepare a child for exams — it prepares them for life.
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
-              {[
-                'Affiliated with Central Board of Secondary Education (CBSE), New Delhi',
-                'Comprehensive STEM, Arts, Languages, and Physical Education integration',
-                'Dedicated scholarship fund for meritorious and underserved children'
-              ].map((item, idx) => (
-                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13.5px', color: '#222222' }}>
-                  <CheckCircle2 size={17} color="#10B981" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={() => setCurrentView('about')}
-              className="btn-primary-pill"
-              style={{ height: '42px', padding: '0 24px', fontSize: '14px' }}
-            >
-              <span>Read Full Institution Story</span>
-              <ArrowRight size={15} />
-            </button>
-          </div>
-
-          <div
-            style={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '36px',
-              border: '1px solid #ECEEF6',
-              boxShadow: '0 12px 36px rgba(27, 34, 56, 0.06)'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginBottom: '20px' }}>
-              <img
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=260"
-                alt="Principal Dr. A. K. Rahman"
-                style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #1976ED' }}
-              />
-              <div>
-                <h3 style={{ fontSize: '20px', color: '#172A55', fontWeight: 700 }}>Dr. A. K. Rahman</h3>
-                <p style={{ fontSize: '13.5px', color: '#1976ED', fontWeight: 600 }}>Principal & Academic Director</p>
-                <p style={{ fontSize: '12px', color: '#888888', marginTop: '2px' }}>Ph.D. in Educational Pedagogy, M.Sc.</p>
-              </div>
-            </div>
-            <div style={{ borderLeft: '3px solid #FFA52E', paddingLeft: '16px', fontStyle: 'italic', color: '#444444', fontSize: '14px', lineHeight: 1.65 }}>
-              "At AL NOOR, education transcends textbooks. We equip our students to navigate the complexities of the 21st century with courage, compassion, and uncompromising knowledge."
-            </div>
           </div>
         </div>
       </section>
@@ -899,7 +898,7 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* 11. Campus Facilities Spotlight */}
-      <section style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
+      <section id="facilities" style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '36px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
@@ -1123,7 +1122,68 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 14. Quick Frequently Asked Questions (FAQ) */}
+      {/* 14. Live Circulars & Notices Preview */}
+      <section id="notices" style={{ padding: '80px 32px', backgroundColor: '#FFFFFF' }}>
+        <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px', flexWrap: 'wrap', gap: '14px' }}>
+            <div>
+              <div style={{ color: '#1976ED', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase' }}>Official Circulars</div>
+              <h2 style={{ fontSize: '30px', color: '#172A55', fontWeight: 800 }}>Live School Notices & Calendar</h2>
+            </div>
+            <button
+              onClick={() => setCurrentView('notices')}
+              className="btn-primary-pill"
+              style={{ height: '38px', fontSize: '13px' }}
+            >
+              <span>View All Official Circulars</span>
+              <ExternalLink size={14} />
+            </button>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+            {notices.slice(0, 3).map(n => (
+              <div
+                key={n.id}
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '12px',
+                  padding: '22px',
+                  boxShadow: '0 3px 12px rgba(23, 42, 85, 0.05)',
+                  border: '1px solid #ECEEF6',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <span className="date-badge" style={{ fontSize: '11.5px', padding: '3px 10px' }}>{n.date}</span>
+                    <span style={{ fontSize: '11.5px', color: '#888888' }}>{n.audience || 'School-wide'}</span>
+                  </div>
+                  <h4 style={{ fontSize: '15px', color: '#172A55', fontWeight: 600, lineHeight: 1.4, marginBottom: '8px' }}>
+                    {n.notice}
+                  </h4>
+                  <p style={{ fontSize: '12.5px', color: '#666666', lineHeight: 1.5 }}>
+                    {n.content?.substring(0, 100)}...
+                  </p>
+                </div>
+                <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '11.5px', color: '#1976ED', fontWeight: 500 }}>Doc: {n.document}</span>
+                  <button
+                    onClick={() => setCurrentView('notices')}
+                    style={{ fontSize: '12.5px', color: '#1976ED', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}
+                  >
+                    <span>Read Details</span>
+                    <ArrowRight size={13} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 15. Quick Frequently Asked Questions (FAQ) */}
       <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '36px' }}>
@@ -1187,8 +1247,8 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 15. Instant Callback Request Strip */}
-      <section style={{ backgroundColor: '#172A55', color: '#FFFFFF', padding: '50px 32px' }}>
+      {/* 16. Instant Callback Request Strip */}
+      <section id="contact" style={{ backgroundColor: '#172A55', color: '#FFFFFF', padding: '50px 32px' }}>
         <div
           style={{
             maxWidth: '1140px',
