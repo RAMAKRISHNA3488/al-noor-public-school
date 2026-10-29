@@ -29,13 +29,13 @@ export const PublicFooter: React.FC = () => {
             style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px', cursor: 'pointer' }}
             onClick={() => handleLink('landing')}
           >
-            <img src="/logo.svg" alt="AL NOOR Logo" style={{ width: '42px', height: '42px', borderRadius: '50%' }} />
+            <img src="/logo.svg" alt="Meridian School Logo" style={{ width: '42px', height: '42px', borderRadius: '50%' }} />
             <div>
               <div style={{ color: '#FFA52E', fontSize: '18px', fontWeight: 700, lineHeight: 1.1 }}>
-                AL NOOR
+                MERIDIAN
               </div>
               <div style={{ color: '#FFFFFF', fontSize: '9.5px', fontWeight: 600, letterSpacing: '1px' }}>
-                PUBLIC SCHOOL
+                SCHOOL
               </div>
             </div>
           </div>
@@ -158,7 +158,7 @@ export const PublicFooter: React.FC = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13px' }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
               <MapPin size={17} color="#FFA52E" style={{ flexShrink: 0, marginTop: '2px' }} />
-              <span>Al-Noor Campus Road, Knowledge City, Sector 12, New Delhi 110075</span>
+              <span>Meridian Campus Road, Knowledge City, Sector 12, New Delhi 110075</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <Phone size={16} color="#1976ED" style={{ flexShrink: 0 }} />
@@ -196,7 +196,7 @@ export const PublicFooter: React.FC = () => {
           color: '#858C9B'
         }}
       >
-        <div>© 2026 AL NOOR Public School. All Rights Reserved.</div>
+        <div>© 2026 Meridian School. All Rights Reserved.</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           <span>Empowering futures with moral wisdom & knowledge</span>
         </div>

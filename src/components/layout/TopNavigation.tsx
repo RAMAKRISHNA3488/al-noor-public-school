@@ -414,7 +414,7 @@ export const TopNavigation: React.FC = () => {
                   Role: {currentUser?.role || 'Admin'}
                 </div>
                 <div style={{ fontSize: '11px', color: '#888888', marginTop: '1px' }}>
-                  {currentUser?.email || 'admin@alnoor.edu'}
+                  {currentUser?.email || 'admin@meridian.edu'}
                 </div>
               </div>
 

@@ -21,7 +21,7 @@ export const SidebarBrand: React.FC = () => {
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', overflow: 'hidden' }}>
         <img
           src="/logo.svg"
-          alt="AL NOOR Logo"
+          alt="Meridian School Logo"
           style={{
             width: '44px',
             height: '44px',
@@ -42,7 +42,7 @@ export const SidebarBrand: React.FC = () => {
                 fontFamily: "'Roboto', sans-serif"
               }}
             >
-              AL NOOR
+              MERIDIAN
             </span>
             <span
               style={{
@@ -54,7 +54,7 @@ export const SidebarBrand: React.FC = () => {
                 marginTop: '1px'
               }}
             >
-              PUBLIC SCHOOL
+              SCHOOL
             </span>
           </div>
         )}

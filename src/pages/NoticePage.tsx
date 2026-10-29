@@ -323,9 +323,9 @@ export const NoticePage: React.FC = () => {
             {/* Document Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '2px solid #FFA52E', paddingBottom: '14px', marginBottom: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <img src="/logo.svg" alt="AL NOOR Logo" style={{ width: '48px', height: '48px' }} />
+                <img src="/logo.svg" alt="Meridian Public School Logo" style={{ width: '48px', height: '48px' }} />
                 <div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#1B2238' }}>AL NOOR PUBLIC SCHOOL</h3>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#1B2238' }}>MERIDIAN PUBLIC SCHOOL</h3>
                   <p style={{ fontSize: '12px', color: '#888888' }}>Affiliated to Central Board of Education</p>
                 </div>
               </div>

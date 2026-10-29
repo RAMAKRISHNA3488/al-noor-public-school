@@ -54,7 +54,7 @@ export const StaffManagementPage: React.FC = () => {
       name,
       designation,
       department,
-      email: email || `${name.toLowerCase().replace(/\s+/g, '.')}@alnoor.edu`,
+      email: email || `${name.toLowerCase().replace(/\s+/g, '.')}@meridian.edu`,
       phone,
       joinDate: new Date().toISOString().split('T')[0],
       status: 'Active'
@@ -233,7 +233,7 @@ export const StaffManagementPage: React.FC = () => {
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                placeholder="name@alnoor.edu"
+                placeholder="name@meridian.edu"
                 className="form-input"
               />
             </div>

@@ -140,7 +140,7 @@ export const ChessboardModal: React.FC<ChessboardModalProps> = ({ game, onClose 
             <div style={{ fontSize: '13px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
               <div><strong>White:</strong> {game.white || 'Grandmaster'}</div>
               <div><strong>Black:</strong> {game.black || 'Grandmaster'}</div>
-              <div><strong>Event:</strong> {game.event || 'AL NOOR Chess Invitational'}</div>
+              <div><strong>Event:</strong> {game.event || 'Meridian Chess Invitational'}</div>
               <div><strong>Date:</strong> {game.date || '2026-03-15'}</div>
             </div>
           </div>

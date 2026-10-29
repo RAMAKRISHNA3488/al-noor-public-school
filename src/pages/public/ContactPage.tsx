@@ -39,7 +39,7 @@ export const ContactPage: React.FC = () => {
       a: 'Admissions are open online from Pre-Primary to Grade 11. Parents can submit the online inquiry form, attend an interactive session with our academic counselor, and finalize registration upon document verification.'
     },
     {
-      q: 'What curriculum does AL NOOR Public School follow?',
+      q: 'What curriculum does Meridian Public School follow?',
       a: 'We are affiliated with the Central Board of Secondary Education (CBSE), New Delhi, enriched with specialized STEM, robotics, computer coding, and co-curricular programs.'
     },
     {
@@ -125,7 +125,7 @@ export const ContactPage: React.FC = () => {
                   Inquiry Submitted Successfully!
                 </h4>
                 <p style={{ fontSize: '13.5px', color: '#047857', lineHeight: 1.6 }}>
-                  Thank you for your interest in AL NOOR Public School. Reference ID: <strong>ANPS-INQ-{Math.floor(1000 + Math.random() * 9000)}</strong>. Our admissions officer will contact you shortly.
+                  Thank you for your interest in Meridian Public School. Reference ID: <strong>MPS-INQ-{Math.floor(1000 + Math.random() * 9000)}</strong>. Our admissions officer will contact you shortly.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -263,7 +263,7 @@ export const ContactPage: React.FC = () => {
                   <div>
                     <strong style={{ color: '#172A55' }}>Campus Address:</strong>
                     <p style={{ color: '#555555', marginTop: '2px', lineHeight: 1.5 }}>
-                      Al-Noor Campus Road, Knowledge City, Sector 12, New Delhi 110075, India
+                      Meridian Campus Road, Knowledge City, Sector 12, New Delhi 110075, India
                     </p>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export const ContactPage: React.FC = () => {
                   <div>
                     <strong style={{ color: '#172A55' }}>Official Email:</strong>
                     <p style={{ color: '#555555', marginTop: '2px' }}>
-                      admissions@alnoor.edu / info@alnoor.edu
+                      admissions@meridian.edu / info@meridian.edu
                     </p>
                   </div>
                 </div>

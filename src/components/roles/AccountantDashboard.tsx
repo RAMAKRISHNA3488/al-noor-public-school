@@ -310,14 +310,14 @@ export const AccountantDashboard: React.FC = () => {
           <div className="modal-content" style={{ maxWidth: '440px' }}>
             <div className="modal-header">
               <h3 style={{ fontSize: '16px', fontWeight: 600, color: '#172A55', margin: 0 }}>
-                AL NOOR Official Fee Receipt
+                Meridian Official Fee Receipt
               </h3>
               <button onClick={() => setShowReceiptModal(false)} style={{ border: 'none', background: 'transparent', fontSize: '20px', cursor: 'pointer' }}>×</button>
             </div>
 
             <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <div style={{ textAlign: 'center', borderBottom: '1px dashed #CCC', paddingBottom: '12px' }}>
-                <h4 style={{ color: '#FFA52E', fontSize: '18px', fontWeight: 700, margin: 0 }}>AL NOOR PUBLIC SCHOOL</h4>
+                <h4 style={{ color: '#FFA52E', fontSize: '18px', fontWeight: 700, margin: 0 }}>MERIDIAN PUBLIC SCHOOL</h4>
                 <span style={{ fontSize: '11px', color: '#666' }}>Affiliated to CBSE • Institutional Area, New Delhi</span>
                 <div style={{ marginTop: '6px' }}>
                   <span style={{ backgroundColor: '#ECFDF5', color: '#10B981', padding: '2px 8px', borderRadius: '4px', fontSize: '11px', fontWeight: 700 }}>

@@ -24,7 +24,7 @@ export const PageFooter: React.FC = () => {
             textDecoration: 'none'
           }}
         >
-          AL-Noor Public School
+          Meridian School
         </a>
       </div>
 

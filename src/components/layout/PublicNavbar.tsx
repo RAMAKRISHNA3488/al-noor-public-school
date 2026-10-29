@@ -116,13 +116,13 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({ activePage }) => {
         style={{ display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer' }}
         onClick={() => handleNavClick('landing')}
       >
-        <img src="/logo.svg" alt="AL NOOR Logo" style={{ width: '46px', height: '46px', borderRadius: '50%' }} />
+        <img src="/logo.svg" alt="Meridian School Logo" style={{ width: '46px', height: '46px', borderRadius: '50%' }} />
         <div>
           <div style={{ color: '#FFA52E', fontSize: '20px', fontWeight: 700, letterSpacing: '0.8px', lineHeight: 1.1 }}>
-            AL NOOR
+            MERIDIAN
           </div>
           <div style={{ color: '#1B2238', fontSize: '10px', fontWeight: 600, letterSpacing: '1.2px', textTransform: 'uppercase' }}>
-            PUBLIC SCHOOL
+            SCHOOL
           </div>
         </div>
       </div>

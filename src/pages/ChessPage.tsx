@@ -56,7 +56,7 @@ export const ChessPage: React.FC = () => {
       title: gameTitle,
       white: whitePlayer || 'Unknown',
       black: blackPlayer || 'Unknown',
-      event: 'AL NOOR Chess Club',
+      event: 'Meridian Chess Club',
       date: new Date().toISOString().split('T')[0],
       result: '*',
       pgn: pgnContent

@@ -170,7 +170,7 @@ export const SchoolProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       name: 'Admin User',
       role: 'Admin',
       username: 'admin',
-      email: 'admin@alnoor.edu'
+      email: 'admin@meridian.edu'
     };
   });
 
@@ -261,7 +261,7 @@ export const SchoolProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const login = (role: string = 'Admin') => {
     let name = 'Admin User';
-    let email = 'admin@alnoor.edu';
+    let email = 'admin@meridian.edu';
     let studentId: string | undefined;
     let grade: string | undefined;
     let department: string | undefined;
@@ -270,37 +270,37 @@ export const SchoolProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     switch (role) {
       case 'Teacher':
         name = 'Prof. Tariq Mahmood';
-        email = 'tariq.m@alnoor.edu';
+        email = 'tariq.m@meridian.edu';
         department = 'Senior Mathematics Department';
         phone = '+91 91234 56780';
         break;
       case 'Student':
         name = 'Zaid bin Tariq';
-        email = 'zaid.tariq@student.alnoor.edu';
-        studentId = 'ANPS-2024-001';
+        email = 'zaid.tariq@student.meridian.edu';
+        studentId = 'MSDN-2024-001';
         grade = 'Grade 10 - Section A';
         break;
       case 'Parent':
         name = 'Hamza Malik (Parent)';
-        email = 'hamza.malik@parent.alnoor.edu';
-        studentId = 'ANPS-2024-001 (Child: Zaid bin Tariq)';
+        email = 'hamza.malik@parent.meridian.edu';
+        studentId = 'MSDN-2024-001 (Child: Zaid bin Tariq)';
         phone = '+91 98765 43210';
         break;
       case 'Accountant':
         name = 'Farhan Akhtar (Chief Bursar)';
-        email = 'accounts@alnoor.edu';
+        email = 'accounts@meridian.edu';
         department = 'Fee & Treasury Department';
         phone = '+91 91234 56785';
         break;
       case 'Librarian':
         name = 'Mrs. Rizwana Parveen';
-        email = 'rizwana.p@alnoor.edu';
+        email = 'rizwana.p@meridian.edu';
         department = 'Central Media & Library';
         phone = '+91 91234 56783';
         break;
       default:
         name = 'Admin User';
-        email = 'admin@alnoor.edu';
+        email = 'admin@meridian.edu';
         department = 'School Management Executive';
         break;
     }

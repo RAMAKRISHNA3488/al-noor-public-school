@@ -71,8 +71,8 @@ export const LandingPage: React.FC = () => {
       a: 'Admissions are open now from Pre-Primary through Grade 11. Parents can complete the online application or book a campus visit with our admissions counselor.'
     },
     {
-      q: 'What is the board affiliation of AL NOOR Public School?',
-      a: 'AL NOOR Public School is affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation No: 2130842), incorporating experiential STEM and digital learning.'
+      q: 'What is the board affiliation of Meridian School?',
+      a: 'Meridian School is affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation No: 2130842), incorporating experiential STEM and digital learning.'
     },
     {
       q: 'Does the school provide transport with female attendants and GPS?',
@@ -80,7 +80,7 @@ export const LandingPage: React.FC = () => {
     },
     {
       q: 'Are merit-based scholarships available for students?',
-      a: 'Yes! The Noor Merit Scholarship offers up to 100% tuition waivers for academic achievers scoring 95%+ and state/national level athletes.'
+      a: 'Yes! The Meridian Merit Scholarship offers up to 100% tuition waivers for academic achievers scoring 95%+ and state/national level athletes.'
     }
   ];
 
@@ -170,7 +170,7 @@ export const LandingPage: React.FC = () => {
               lineHeight: 1.65
             }}
           >
-            AL NOOR Public School provides world-class CBSE education combining intellectual distinction, moral rectitude, modern STEM robotics, and values-driven character building for students from Grade 1 to 12.
+            Meridian School provides world-class CBSE education combining intellectual distinction, moral rectitude, modern STEM robotics, and values-driven character building for students from Grade 1 to 12.
           </p>
 
           {/* Action CTAs */}
@@ -296,7 +296,7 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. About Us: Why Choose AL NOOR (6 Pillars) & Leadership */}
+      {/* 4. About Us: Why Choose Meridian School (6 Pillars) & Leadership */}
       <section id="about" style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
@@ -304,7 +304,7 @@ export const LandingPage: React.FC = () => {
               Why Choose Our Institution
             </span>
             <h2 style={{ fontSize: '34px', color: '#172A55', fontWeight: 800, marginTop: '8px' }}>
-              Six Pillars of Excellence at AL NOOR
+              Six Pillars of Excellence at Meridian School
             </h2>
             <p style={{ fontSize: '15px', color: '#666666', maxWidth: '680px', margin: '10px auto 0', lineHeight: 1.6 }}>
               We balance rigorous academics, innovative STEM laboratories, ethical values, and physical wellness to develop visionary young leaders.
@@ -315,7 +315,7 @@ export const LandingPage: React.FC = () => {
             {[
               {
                 title: 'Value-Based Moral Character',
-                desc: 'Rooted in the light (Noor) of ethical wisdom, empathy, and social responsibility alongside standard CBSE curriculum.',
+                desc: 'Rooted in ethical wisdom, empathy, and social responsibility alongside standard CBSE curriculum.',
                 icon: <HeartHandshake size={24} color="#10B981" />,
                 bg: '#ECFDF5'
               },
@@ -394,7 +394,7 @@ export const LandingPage: React.FC = () => {
                 "Illuminating Young Minds with Ethical Intellect"
               </h2>
               <p style={{ fontSize: '15px', color: '#555555', lineHeight: 1.7, marginBottom: '16px' }}>
-                At AL NOOR Public School, our mission is to provide an ecosystem where scholarly rigor coexists with empathy, courage, and moral discipline. We believe that true education does not simply prepare a child for exams — it prepares them for life.
+                At Meridian School, our mission is to provide an ecosystem where scholarly rigor coexists with empathy, courage, and moral discipline. We believe that true education does not simply prepare a child for exams — it prepares them for life.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
                 {[
@@ -441,7 +441,7 @@ export const LandingPage: React.FC = () => {
                 </div>
               </div>
               <div style={{ borderLeft: '3px solid #FFA52E', paddingLeft: '16px', fontStyle: 'italic', color: '#444444', fontSize: '14px', lineHeight: 1.65 }}>
-                "At AL NOOR, education transcends textbooks. We equip our students to navigate the complexities of the 21st century with courage, compassion, and uncompromising knowledge."
+                "At Meridian School, education transcends textbooks. We equip our students to navigate the complexities of the 21st century with courage, compassion, and uncompromising knowledge."
               </div>
             </div>
           </div>
@@ -653,7 +653,7 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 8. A Day in the Life of an AL NOOR Student (NEW SECTION) */}
+      {/* 8. A Day in the Life of a Meridian Student (NEW SECTION) */}
       <section style={{ padding: '80px 32px', backgroundColor: '#F8FAFE' }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '45px' }}>
@@ -661,7 +661,7 @@ export const LandingPage: React.FC = () => {
               Student Experience
             </span>
             <h2 style={{ fontSize: '32px', color: '#172A55', fontWeight: 800, marginTop: '8px' }}>
-              A Day in the Life of an AL NOOR Scholar
+              A Day in the Life of a Meridian Scholar
             </h2>
             <p style={{ fontSize: '15px', color: '#666666', maxWidth: '680px', margin: '10px auto 0', lineHeight: 1.6 }}>
               A purposeful blend of mindfulness, interactive inquiry, collaborative sports, and character building from sunrise to afternoon.
@@ -745,7 +745,7 @@ export const LandingPage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
             {[
               {
-                title: 'Noor Merit Scholarship',
+                title: 'Meridian Merit Scholarship',
                 benefit: 'Up to 100% Tuition Fee Waiver',
                 criteria: 'Awarded to scholars with 95%+ in previous board or grade examinations and top entrance test percentiles.',
                 color: '#FFA52E'
@@ -814,7 +814,7 @@ export const LandingPage: React.FC = () => {
               Vibrant Student Life & Extracurricular Clubs
             </h2>
             <p style={{ fontSize: '15px', color: '#666666', maxWidth: '680px', margin: '10px auto 0', lineHeight: 1.6 }}>
-              Education at AL NOOR flourishes through diverse clubs, competitive mind sports, arts festivals, and community leadership guilds.
+              Education at Meridian School flourishes through diverse clubs, competitive mind sports, arts festivals, and community leadership guilds.
             </p>
           </div>
 
@@ -981,7 +981,7 @@ export const LandingPage: React.FC = () => {
               Your 4-Step Admission Journey
             </h2>
             <p style={{ fontSize: '15px', color: '#666666', maxWidth: '680px', margin: '10px auto 0', lineHeight: 1.6 }}>
-              A transparent, hassle-free admission procedure designed to welcome your child into the AL NOOR family.
+              A transparent, hassle-free admission procedure designed to welcome your child into the Meridian family.
             </p>
           </div>
 
@@ -1083,7 +1083,7 @@ export const LandingPage: React.FC = () => {
                 stars: 5
               },
               {
-                quote: "AL NOOR shaped my analytical foundation in the physics and robotics lab. I am currently completing my B.Tech at IIT Delhi with pride.",
+                quote: "Meridian School shaped my analytical foundation in the physics and robotics lab. I am currently completing my B.Tech at IIT Delhi with pride.",
                 name: "Farhan Qureshi",
                 role: "Alumnus (Batch of 2022) — IIT Delhi",
                 stars: 5

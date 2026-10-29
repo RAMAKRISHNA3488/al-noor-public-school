@@ -74,7 +74,7 @@ export const PublicNoticesPage: React.FC = () => {
             Live School Notices & <span style={{ color: '#FFA52E' }}>Circulars</span>
           </h1>
           <p style={{ fontSize: '16.5px', color: '#C5C9D2', maxWidth: '760px', margin: '0 auto', lineHeight: 1.65 }}>
-            Access all verified public notifications, examination schedules, holiday calendars, and administrative circulars for AL NOOR Public School.
+            Access all verified public notifications, examination schedules, holiday calendars, and administrative circulars for Meridian Public School.
           </p>
         </div>
       </section>
@@ -295,7 +295,7 @@ export const PublicNoticesPage: React.FC = () => {
             </div>
 
             <p style={{ fontSize: '14px', color: '#444444', lineHeight: 1.7, marginBottom: '24px' }}>
-              {activeNoticeModal.content || 'This circular serves as formal notice to all students, faculty, and guardians of AL NOOR Public School. For any clarifications, kindly contact the administration office during campus hours.'}
+              {activeNoticeModal.content || 'This circular serves as formal notice to all students, faculty, and guardians of Meridian Public School. For any clarifications, kindly contact the administration office during campus hours.'}
             </p>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>

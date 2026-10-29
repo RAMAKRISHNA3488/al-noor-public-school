@@ -70,10 +70,10 @@ export const AboutPage: React.FC = () => {
           </div>
 
           <h1 style={{ fontSize: '42px', fontWeight: 700, lineHeight: 1.25, marginBottom: '18px', letterSpacing: '-0.5px' }}>
-            Empowering Minds with <span style={{ color: '#FFA52E' }}>Light (Noor)</span> & Wisdom
+            Empowering Minds with <span style={{ color: '#FFA52E' }}>Excellence</span> & Wisdom
           </h1>
           <p style={{ fontSize: '16.5px', color: '#C5C9D2', maxWidth: '760px', margin: '0 auto', lineHeight: 1.65 }}>
-            Since 2005, AL NOOR Public School has stood as a beacon of academic rigor, character building, and inclusive leadership in modern schooling.
+            Since 2005, Meridian Public School has stood as a beacon of academic rigor, character building, and inclusive leadership in modern schooling.
           </p>
         </div>
       </section>
@@ -219,7 +219,7 @@ export const AboutPage: React.FC = () => {
               "Education that Transcends the Classroom into Life"
             </h2>
             <p style={{ fontSize: '15px', color: '#555555', lineHeight: 1.7, marginBottom: '16px' }}>
-              Welcome to AL NOOR Public School. For over two decades, our campus has flourished as a nurturing sanctuary where every young student discovers their unique voice, passion, and purpose.
+              Welcome to Meridian Public School. For over two decades, our campus has flourished as a nurturing sanctuary where every young student discovers their unique voice, passion, and purpose.
             </p>
             <p style={{ fontSize: '15px', color: '#555555', lineHeight: 1.7, marginBottom: '24px' }}>
               We believe true education is neither rote memorization nor mere grades; it is the harmonious convergence of critical acumen, moral courage, and compassionate civic responsibility.

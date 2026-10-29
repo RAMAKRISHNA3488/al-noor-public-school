@@ -125,11 +125,11 @@ export const LoginPage: React.FC = () => {
         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
           <img
             src="/logo.svg"
-            alt="AL NOOR Logo"
+            alt="Meridian School Logo"
             style={{ width: '60px', height: '60px', borderRadius: '50%', margin: '0 auto 10px', display: 'block' }}
           />
           <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#1B2238', letterSpacing: '0.5px' }}>
-            AL NOOR <span style={{ color: '#FFA52E' }}>PUBLIC SCHOOL</span>
+            MERIDIAN <span style={{ color: '#FFA52E' }}>SCHOOL</span>
           </h2>
           <p style={{ fontSize: '13px', color: '#888888', marginTop: '2px' }}>
             Administrative & Academic ERP Portal

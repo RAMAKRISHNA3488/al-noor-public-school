@@ -434,7 +434,7 @@ export const initialStaff: Staff[] = [
     name: 'Prof. Tariq Mahmood',
     designation: 'Senior Mathematics Teacher',
     department: 'Mathematics',
-    email: 'tariq.m@alnoor.edu',
+    email: 'tariq.m@meridian.edu',
     phone: '+91 91234 56780',
     joinDate: '2018-06-15',
     status: 'Active'
@@ -445,7 +445,7 @@ export const initialStaff: Staff[] = [
     name: 'Mrs. Ayesha Khan',
     designation: 'HOD English Literature',
     department: 'Languages',
-    email: 'ayesha.k@alnoor.edu',
+    email: 'ayesha.k@meridian.edu',
     phone: '+91 91234 56781',
     joinDate: '2017-04-10',
     status: 'Active'
@@ -456,7 +456,7 @@ export const initialStaff: Staff[] = [
     name: 'Dr. Imran Qureshi',
     designation: 'Senior Physics Lecturer',
     department: 'Science',
-    email: 'imran.q@alnoor.edu',
+    email: 'imran.q@meridian.edu',
     phone: '+91 91234 56782',
     joinDate: '2019-07-01',
     status: 'Active'
@@ -467,7 +467,7 @@ export const initialStaff: Staff[] = [
     name: 'Mrs. Rizwana Parveen',
     designation: 'Chief Librarian',
     department: 'Library Services',
-    email: 'rizwana.p@alnoor.edu',
+    email: 'rizwana.p@meridian.edu',
     phone: '+91 91234 56783',
     joinDate: '2016-03-20',
     status: 'Active'
@@ -478,7 +478,7 @@ export const initialStaff: Staff[] = [
     name: 'Mr. Farooq Ahmed',
     designation: 'Fleet & Transport Manager',
     department: 'Transport',
-    email: 'farooq.a@alnoor.edu',
+    email: 'farooq.a@meridian.edu',
     phone: '+91 91234 56784',
     joinDate: '2020-01-15',
     status: 'Active'
@@ -515,15 +515,15 @@ export const initialBooks: Book[] = [
 ];
 
 export const initialIssuedBooks: IssuedBook[] = [
-  { id: 1, bookTitle: 'Concepts of Physics (Vol 1)', borrowerName: 'Zaid bin Tariq', borrowerType: 'Student', borrowerId: 'ANPS-2024-001', issueDate: '2026-03-01', dueDate: '2026-03-15', status: 'Issued', fine: 0 },
-  { id: 2, bookTitle: 'Higher Algebra & Coordinate Geometry', borrowerName: 'Maryam Fatima', borrowerType: 'Student', borrowerId: 'ANPS-2024-002', issueDate: '2026-02-20', dueDate: '2026-03-06', status: 'Overdue', fine: 45 },
+  { id: 1, bookTitle: 'Concepts of Physics (Vol 1)', borrowerName: 'Zaid bin Tariq', borrowerType: 'Student', borrowerId: 'MSDN-2024-001', issueDate: '2026-03-01', dueDate: '2026-03-15', status: 'Issued', fine: 0 },
+  { id: 2, bookTitle: 'Higher Algebra & Coordinate Geometry', borrowerName: 'Maryam Fatima', borrowerType: 'Student', borrowerId: 'MSDN-2024-002', issueDate: '2026-02-20', dueDate: '2026-03-06', status: 'Overdue', fine: 45 },
   { id: 3, bookTitle: 'Advanced Inorganic Chemistry', borrowerName: 'Prof. Tariq Mahmood', borrowerType: 'Staff', borrowerId: 'EMP-101', issueDate: '2026-02-15', dueDate: '2026-03-15', status: 'Returned', fine: 0 }
 ];
 
 export const initialVehicleRoutes: VehicleRoute[] = [
-  { id: 1, vehicleNumber: 'DL-01-SB-4521', model: 'Tata Starbus 40-Seater', capacity: 40, routeName: 'Route 1: Central Town via Model Colony', startPoint: 'Al-Noor Campus', endPoint: 'Civil Lines Metro Station', stopsCount: 8 },
-  { id: 2, vehicleNumber: 'DL-01-SB-4522', model: 'Ashok Leyland Sunshine 32-Seater', capacity: 32, routeName: 'Route 2: Green Park & Sector 7 Link', startPoint: 'Al-Noor Campus', endPoint: 'Green Park Market', stopsCount: 6 },
-  { id: 3, vehicleNumber: 'DL-01-SB-4523', model: 'Force Traveller 26-Seater', capacity: 26, routeName: 'Route 3: University Road & Noor Heights', startPoint: 'Al-Noor Campus', endPoint: 'Noor Heights Complex', stopsCount: 7 }
+  { id: 1, vehicleNumber: 'DL-01-SB-4521', model: 'Tata Starbus 40-Seater', capacity: 40, routeName: 'Route 1: Central Town via Model Colony', startPoint: 'Meridian Campus', endPoint: 'Civil Lines Metro Station', stopsCount: 8 },
+  { id: 2, vehicleNumber: 'DL-01-SB-4522', model: 'Ashok Leyland Sunshine 32-Seater', capacity: 32, routeName: 'Route 2: Green Park & Sector 7 Link', startPoint: 'Meridian Campus', endPoint: 'Green Park Market', stopsCount: 6 },
+  { id: 3, vehicleNumber: 'DL-01-SB-4523', model: 'Force Traveller 26-Seater', capacity: 26, routeName: 'Route 3: University Road & Meridian Heights', startPoint: 'Meridian Campus', endPoint: 'Meridian Heights Complex', stopsCount: 7 }
 ];
 
 export const initialDriverMappings: DriverMapping[] = [

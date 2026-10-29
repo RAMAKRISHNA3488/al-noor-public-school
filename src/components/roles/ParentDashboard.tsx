@@ -112,7 +112,7 @@ export const ParentDashboard: React.FC = () => {
             Welcome, {currentUser?.name || 'Hamza Malik'}!
           </h2>
           <p style={{ margin: '4px 0 0', color: '#CBD5E1', fontSize: '13px' }}>
-            Connected to 2 wards at AL NOOR Public School. Real-time updates active.
+            Connected to 2 wards at Meridian Public School. Real-time updates active.
           </p>
         </div>
 
@@ -339,7 +339,7 @@ export const ParentDashboard: React.FC = () => {
           <div className="modal-content" style={{ maxWidth: '440px' }}>
             <div className="modal-header">
               <h3 style={{ fontSize: '16px', fontWeight: 600, color: '#172A55', margin: 0 }}>
-                AL NOOR Online Fee Counter
+                Meridian Online Fee Counter
               </h3>
               <button onClick={() => setShowPaymentModal(false)} style={{ border: 'none', background: 'transparent', fontSize: '20px', cursor: 'pointer' }}>×</button>
             </div>
