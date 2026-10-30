@@ -102,6 +102,7 @@ export const LandingPage: React.FC = () => {
       >
         {/* Subtle Decorative Background Rings */}
         <div
+          className="anim-float-slow"
           style={{
             position: 'absolute',
             top: '-80px',
@@ -109,11 +110,12 @@ export const LandingPage: React.FC = () => {
             width: '450px',
             height: '450px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255, 165, 46, 0.15) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255, 165, 46, 0.18) 0%, transparent 70%)',
             pointerEvents: 'none'
           }}
         />
         <div
+          className="anim-float-reverse"
           style={{
             position: 'absolute',
             bottom: '-60px',
@@ -121,7 +123,7 @@ export const LandingPage: React.FC = () => {
             width: '380px',
             height: '380px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(25, 118, 237, 0.12) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(25, 118, 237, 0.16) 0%, transparent 70%)',
             pointerEvents: 'none'
           }}
         />
@@ -129,7 +131,7 @@ export const LandingPage: React.FC = () => {
         <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 2 }}>
           {/* Badge */}
           <div
-            className="floating-badge badge-glow-pulse"
+            className="floating-badge badge-glow-pulse badge-pulse-glow anim-hero-badge"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -149,6 +151,7 @@ export const LandingPage: React.FC = () => {
           </div>
 
           <h1
+            className="anim-hero-title"
             style={{
               fontSize: '50px',
               fontWeight: 800,
@@ -162,6 +165,7 @@ export const LandingPage: React.FC = () => {
           </h1>
 
           <p
+            className="anim-hero-subtitle"
             style={{
               fontSize: '17px',
               color: '#C5C9D2',
@@ -174,10 +178,10 @@ export const LandingPage: React.FC = () => {
           </p>
 
           {/* Action CTAs */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+          <div className="anim-hero-actions" style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <button
               onClick={() => setCurrentView('contact')}
-              className="btn-primary-pill"
+              className="btn-primary-pill btn-animated-shine"
               style={{
                 height: '46px',
                 padding: '0 28px',
@@ -225,6 +229,7 @@ export const LandingPage: React.FC = () => {
 
           {/* 4 Feature Badges */}
           <div
+            className="anim-hero-cards"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
@@ -241,18 +246,17 @@ export const LandingPage: React.FC = () => {
             ].map((f, i) => (
               <div
                 key={i}
+                className="landing-interactive-card"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.06)',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: '12px',
                   padding: '20px',
                   backdropFilter: 'blur(6px)',
-                  transition: 'transform 0.25s ease'
+                  cursor: 'pointer'
                 }}
-                onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-3px)'}
-                onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
               >
-                <div style={{ marginBottom: '10px' }}>{f.icon}</div>
+                <div className="card-icon-animated" style={{ marginBottom: '10px' }}>{f.icon}</div>
                 <div style={{ fontSize: '15px', fontWeight: 600, color: '#FFFFFF' }}>{f.title}</div>
                 <div style={{ fontSize: '12.5px', color: '#858C9B', marginTop: '3px' }}>{f.desc}</div>
               </div>
@@ -273,23 +277,23 @@ export const LandingPage: React.FC = () => {
             textAlign: 'center'
           }}
         >
-          <div>
+          <div className="landing-stat-item">
             <div style={{ fontSize: '36px', fontWeight: 800, color: '#FFA52E', lineHeight: 1 }}>21+</div>
             <div style={{ fontSize: '13px', color: '#C5C9D2', marginTop: '6px', fontWeight: 500 }}>Years of Academic Glory</div>
           </div>
-          <div>
+          <div className="landing-stat-item">
             <div style={{ fontSize: '36px', fontWeight: 800, color: '#FFFFFF', lineHeight: 1 }}>1,248+</div>
             <div style={{ fontSize: '13px', color: '#C5C9D2', marginTop: '6px', fontWeight: 500 }}>Enrolled Scholars</div>
           </div>
-          <div>
+          <div className="landing-stat-item">
             <div style={{ fontSize: '36px', fontWeight: 800, color: '#FFA52E', lineHeight: 1 }}>100%</div>
             <div style={{ fontSize: '13px', color: '#C5C9D2', marginTop: '6px', fontWeight: 500 }}>CBSE Board Pass Rate</div>
           </div>
-          <div>
+          <div className="landing-stat-item">
             <div style={{ fontSize: '36px', fontWeight: 800, color: '#FFFFFF', lineHeight: 1 }}>1:18</div>
             <div style={{ fontSize: '13px', color: '#C5C9D2', marginTop: '6px', fontWeight: 500 }}>Teacher-Student Ratio</div>
           </div>
-          <div>
+          <div className="landing-stat-item">
             <div style={{ fontSize: '36px', fontWeight: 800, color: '#FFA52E', lineHeight: 1 }}>35+</div>
             <div style={{ fontSize: '13px', color: '#C5C9D2', marginTop: '6px', fontWeight: 500 }}>Inter-School Trophies</div>
           </div>
@@ -352,15 +356,17 @@ export const LandingPage: React.FC = () => {
             ].map((pillar, i) => (
               <div
                 key={i}
-                className="analytics-card"
+                className="analytics-card landing-interactive-card"
                 style={{
                   backgroundColor: '#FFFFFF',
                   borderRadius: '14px',
                   padding: '28px',
-                  border: '1px solid #ECEEF6'
+                  border: '1px solid #ECEEF6',
+                  cursor: 'default'
                 }}
               >
                 <div
+                  className="card-icon-animated"
                   style={{
                     width: '52px',
                     height: '52px',
@@ -500,14 +506,15 @@ export const LandingPage: React.FC = () => {
             ].map((topper, i) => (
               <div
                 key={i}
-                className="analytics-card"
+                className="analytics-card landing-interactive-card"
                 style={{
                   backgroundColor: '#FFFFFF',
                   borderRadius: '16px',
                   padding: '28px 22px',
                   border: '1px solid #ECEEF6',
                   textAlign: 'center',
-                  position: 'relative'
+                  position: 'relative',
+                  cursor: 'default'
                 }}
               >
                 <div
@@ -527,6 +534,7 @@ export const LandingPage: React.FC = () => {
                 </div>
 
                 <div
+                  className="card-icon-animated"
                   style={{
                     width: '72px',
                     height: '72px',
@@ -611,16 +619,18 @@ export const LandingPage: React.FC = () => {
             ].map((f, i) => (
               <div
                 key={i}
-                className="analytics-card"
+                className="analytics-card landing-interactive-card"
                 style={{
                   backgroundColor: '#FFFFFF',
                   borderRadius: '14px',
                   padding: '26px 20px',
                   border: '1px solid #ECEEF6',
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  cursor: 'default'
                 }}
               >
                 <div
+                  className="card-icon-animated"
                   style={{
                     width: '64px',
                     height: '64px',
@@ -1203,10 +1213,11 @@ export const LandingPage: React.FC = () => {
                   key={index}
                   style={{
                     backgroundColor: '#FFFFFF',
-                    border: '1px solid #ECEEF6',
+                    border: isOpen ? '1px solid #C9DAFB' : '1px solid #ECEEF6',
                     borderRadius: '12px',
                     overflow: 'hidden',
-                    boxShadow: isOpen ? '0 4px 16px rgba(27, 34, 56, 0.04)' : 'none'
+                    boxShadow: isOpen ? '0 8px 24px rgba(25, 118, 237, 0.08)' : 'none',
+                    transition: 'border-color 0.25s ease, box-shadow 0.25s ease'
                   }}
                 >
                   <button
@@ -1222,15 +1233,15 @@ export const LandingPage: React.FC = () => {
                       fontSize: '15px',
                       fontWeight: 600,
                       color: isOpen ? '#1976ED' : '#172A55',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      transition: 'background-color 0.2s ease, color 0.2s ease'
                     }}
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
                       size={18}
+                      className={`faq-chevron ${isOpen ? 'expanded' : ''}`}
                       style={{
-                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                        transition: 'transform 0.2s ease',
                         flexShrink: 0
                       }}
                     />
