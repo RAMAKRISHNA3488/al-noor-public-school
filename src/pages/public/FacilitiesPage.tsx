@@ -130,9 +130,36 @@ export const FacilitiesPage: React.FC = () => {
           textAlign: 'center'
         }}
       >
+        <div
+          className="anim-float-slow"
+          style={{
+            position: 'absolute',
+            top: '-70px',
+            right: '-70px',
+            width: '400px',
+            height: '400px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255, 165, 46, 0.16) 0%, transparent 70%)',
+            pointerEvents: 'none'
+          }}
+        />
+        <div
+          className="anim-float-reverse"
+          style={{
+            position: 'absolute',
+            bottom: '-60px',
+            left: '-60px',
+            width: '360px',
+            height: '360px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(25, 118, 237, 0.16) 0%, transparent 70%)',
+            pointerEvents: 'none'
+          }}
+        />
+
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div
-            className="floating-badge badge-glow-pulse"
+            className="floating-badge badge-glow-pulse badge-pulse-glow"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -203,7 +230,7 @@ export const FacilitiesPage: React.FC = () => {
           {/* Cards Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '26px' }}>
             {filtered.map(f => (
-              <div key={f.id} className="facility-card-premium">
+              <div key={f.id} className="facility-card-premium landing-interactive-card" style={{ cursor: 'default' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '18px' }}>
                   <div
                     className="facility-icon-wrap"

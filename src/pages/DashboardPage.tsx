@@ -65,7 +65,7 @@ export const DashboardPage: React.FC = () => {
         {statCards.map((card, idx) => (
           <div
             key={idx}
-            className="stat-card-premium"
+            className={`stat-card-premium stagger-${idx + 1}`}
             style={{
               display: 'flex',
               alignItems: 'center',

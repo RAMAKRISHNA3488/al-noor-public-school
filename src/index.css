@@ -116,18 +116,18 @@ input, select, textarea {
    ========================================================================== */
 
 @keyframes pageFadeIn {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px) scale(0.995);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 .page-animated-wrapper {
-  animation: pageFadeIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: pageFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes bellRing {
@@ -1317,5 +1317,63 @@ button:active {
 
 .faq-chevron.expanded {
   transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   GLOBAL PREMIUM UI MICRO-INTERACTIONS & LOGIN SUITE
+   ========================================================================== */
+
+/* Login Card Spring Entrance */
+@keyframes loginSpringIn {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.login-card-animated {
+  animation: loginSpringIn 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Quick Login Chips & Role Badges */
+.quick-login-chip {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.quick-login-chip:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(27, 34, 56, 0.08);
+}
+
+.quick-login-chip:active {
+  transform: scale(0.97);
+}
+
+/* Global Button Click Feedback */
+.btn-primary-pill, .btn-secondary-pill {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.18s ease;
+}
+
+.btn-primary-pill:active, .btn-secondary-pill:active {
+  transform: scale(0.97);
+}
+
+/* Interactive Table Row Hover */
+.table-interactive-row {
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.table-interactive-row:hover {
+  background-color: var(--color-table-hover) !important;
+  transform: translateX(3px);
 }
 

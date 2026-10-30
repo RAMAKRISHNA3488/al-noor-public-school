@@ -64,6 +64,7 @@ export const LoginPage: React.FC = () => {
     >
       {/* Decorative background glow circles */}
       <div
+        className="anim-float-slow"
         style={{
           position: 'absolute',
           top: '-120px',
@@ -71,11 +72,12 @@ export const LoginPage: React.FC = () => {
           width: '500px',
           height: '500px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(255, 165, 46, 0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(255, 165, 46, 0.16) 0%, transparent 70%)',
           pointerEvents: 'none'
         }}
       />
       <div
+        className="anim-float-reverse"
         style={{
           position: 'absolute',
           bottom: '-100px',
@@ -83,12 +85,13 @@ export const LoginPage: React.FC = () => {
           width: '500px',
           height: '500px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(25, 118, 237, 0.14) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(25, 118, 237, 0.18) 0%, transparent 70%)',
           pointerEvents: 'none'
         }}
       />
 
       <div
+        className="login-card-animated"
         style={{
           width: '100%',
           maxWidth: '460px',
@@ -97,8 +100,7 @@ export const LoginPage: React.FC = () => {
           boxShadow: '0 16px 48px rgba(0, 0, 0, 0.35)',
           padding: '36px 32px',
           position: 'relative',
-          zIndex: 10,
-          animation: 'modalSpringIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both'
+          zIndex: 10
         }}
       >
         {/* Back to website button */}
@@ -260,7 +262,7 @@ export const LoginPage: React.FC = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="btn-primary-pill"
+            className="btn-primary-pill btn-animated-shine"
             style={{
               width: '100%',
               height: '42px',
@@ -285,7 +287,7 @@ export const LoginPage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
             <button
               onClick={() => handleQuickLogin('Admin')}
-              className="demo-role-chip"
+              className="demo-role-chip quick-login-chip"
               style={{ color: '#1976ED', borderColor: '#BFDBFE' }}
               title="Super Admin Dashboard with all 18 modules"
             >
@@ -294,7 +296,7 @@ export const LoginPage: React.FC = () => {
             </button>
             <button
               onClick={() => handleQuickLogin('Teacher')}
-              className="demo-role-chip"
+              className="demo-role-chip quick-login-chip"
               style={{ color: '#10B981', borderColor: '#A7F3D0' }}
               title="Teacher Schedule, Attendance Register, Homework & Leaves"
             >
@@ -303,7 +305,7 @@ export const LoginPage: React.FC = () => {
             </button>
             <button
               onClick={() => handleQuickLogin('Student')}
-              className="demo-role-chip"
+              className="demo-role-chip quick-login-chip"
               style={{ color: '#2563EB', borderColor: '#BFDBFE' }}
               title="Student Timetable, Homework Upload, Library Shelf & Chess"
             >
@@ -312,7 +314,7 @@ export const LoginPage: React.FC = () => {
             </button>
             <button
               onClick={() => handleQuickLogin('Parent')}
-              className="demo-role-chip"
+              className="demo-role-chip quick-login-chip"
               style={{ color: '#EA580C', borderColor: '#FED7AA' }}
               title="Child Presence, GPS Bus Tracker, Fee Payment & Complaints"
             >
@@ -321,7 +323,7 @@ export const LoginPage: React.FC = () => {
             </button>
             <button
               onClick={() => handleQuickLogin('Accountant')}
-              className="demo-role-chip"
+              className="demo-role-chip quick-login-chip"
               style={{ color: '#7C3AED', borderColor: '#DDD6FE' }}
               title="Bursar Counter, Fee Collection, Defaulter Alerts & Receipts"
             >
@@ -330,7 +332,7 @@ export const LoginPage: React.FC = () => {
             </button>
             <button
               onClick={() => handleQuickLogin('Librarian')}
-              className="demo-role-chip"
+              className="demo-role-chip quick-login-chip"
               style={{ color: '#0891B2', borderColor: '#A5F3FC' }}
               title="Circulation Desk, Book Catalog, Loan Issue/Return & Fines"
             >

@@ -72,9 +72,36 @@ export const AcademicsPage: React.FC = () => {
           textAlign: 'center'
         }}
       >
+        <div
+          className="anim-float-slow"
+          style={{
+            position: 'absolute',
+            top: '-70px',
+            right: '-70px',
+            width: '400px',
+            height: '400px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(25, 118, 237, 0.18) 0%, transparent 70%)',
+            pointerEvents: 'none'
+          }}
+        />
+        <div
+          className="anim-float-reverse"
+          style={{
+            position: 'absolute',
+            bottom: '-60px',
+            left: '-60px',
+            width: '360px',
+            height: '360px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255, 165, 46, 0.16) 0%, transparent 70%)',
+            pointerEvents: 'none'
+          }}
+        />
+
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div
-            className="floating-badge badge-glow-pulse"
+            className="floating-badge badge-glow-pulse badge-pulse-glow"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -114,7 +141,7 @@ export const AcademicsPage: React.FC = () => {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="analytics-card"
+                className="analytics-card landing-interactive-card"
                 style={{
                   backgroundColor: '#FFFFFF',
                   borderRadius: '12px',
@@ -122,10 +149,12 @@ export const AcademicsPage: React.FC = () => {
                   border: '1px solid #ECEEF6',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '16px'
+                  gap: '16px',
+                  cursor: 'default'
                 }}
               >
                 <div
+                  className="card-icon-animated"
                   style={{
                     width: '46px',
                     height: '46px',

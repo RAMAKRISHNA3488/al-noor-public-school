@@ -37,6 +37,7 @@ export const AboutPage: React.FC = () => {
         }}
       >
         <div
+          className="anim-float-slow"
           style={{
             position: 'absolute',
             top: '-60px',
@@ -44,13 +45,13 @@ export const AboutPage: React.FC = () => {
             width: '380px',
             height: '380px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255, 165, 46, 0.15) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255, 165, 46, 0.18) 0%, transparent 70%)',
             pointerEvents: 'none'
           }}
         />
         <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div
-            className="floating-badge badge-glow-pulse"
+            className="floating-badge badge-glow-pulse badge-pulse-glow"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -84,16 +85,18 @@ export const AboutPage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
             {/* Vision */}
             <div
-              className="analytics-card"
+              className="analytics-card landing-interactive-card"
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '16px',
                 padding: '36px 32px',
                 border: '1px solid #E2E8F0',
-                boxShadow: '0 8px 30px rgba(27, 34, 56, 0.05)'
+                boxShadow: '0 8px 30px rgba(27, 34, 56, 0.05)',
+                cursor: 'default'
               }}
             >
               <div
+                className="card-icon-animated"
                 style={{
                   width: '54px',
                   height: '54px',
@@ -117,16 +120,18 @@ export const AboutPage: React.FC = () => {
 
             {/* Mission */}
             <div
-              className="analytics-card"
+              className="analytics-card landing-interactive-card"
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '16px',
                 padding: '36px 32px',
                 border: '1px solid #E2E8F0',
-                boxShadow: '0 8px 30px rgba(27, 34, 56, 0.05)'
+                boxShadow: '0 8px 30px rgba(27, 34, 56, 0.05)',
+                cursor: 'default'
               }}
             >
               <div
+                className="card-icon-animated"
                 style={{
                   width: '54px',
                   height: '54px',
@@ -150,16 +155,18 @@ export const AboutPage: React.FC = () => {
 
             {/* Core Values */}
             <div
-              className="analytics-card"
+              className="analytics-card landing-interactive-card"
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '16px',
                 padding: '36px 32px',
                 border: '1px solid #E2E8F0',
-                boxShadow: '0 8px 30px rgba(27, 34, 56, 0.05)'
+                boxShadow: '0 8px 30px rgba(27, 34, 56, 0.05)',
+                cursor: 'default'
               }}
             >
               <div
+                className="card-icon-animated"
                 style={{
                   width: '54px',
                   height: '54px',
